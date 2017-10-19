@@ -14,13 +14,13 @@ public interface PlacesContract {
 
     void loadPlaces(String type, String location);
 
-    void openPlaceDetails();
+    void openPlaceDetails(String placeId);
 
     void handleConnectionError();
   }
 
   interface View extends BaseView<Presenter> {
-    void showPlaceDetails();
+    void showPlaceDetails(Place place);
 
     void showPlaces(List<Place> places);
 

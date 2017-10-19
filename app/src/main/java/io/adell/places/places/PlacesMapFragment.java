@@ -7,8 +7,8 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PointOfInterest;
 import io.adell.places.data.Place;
 import java.util.List;
 
@@ -17,7 +17,7 @@ import java.util.List;
  */
 
 public class PlacesMapFragment extends SupportMapFragment implements PlacesContract.View,
-    OnMapReadyCallback {
+    OnMapReadyCallback, GoogleMap.OnPoiClickListener {
   private PlacesContract.Presenter presenter;
   private GoogleMap map;
 
@@ -38,8 +38,8 @@ public class PlacesMapFragment extends SupportMapFragment implements PlacesContr
   }
 
   @Override
-  public void showPlaceDetails() {
-
+  public void showPlaceDetails(Place place) {
+    Toast.makeText(getContext(), "place: "+place.getName(), Toast.LENGTH_SHORT).show();
   }
 
   @Override
@@ -61,6 +61,13 @@ public class PlacesMapFragment extends SupportMapFragment implements PlacesContr
     map = googleMap;
     LatLng sf = new LatLng(37.778644,-122.405680);
     map.moveCamera(CameraUpdateFactory.newLatLng(sf));
-    map.moveCamera(CameraUpdateFactory.newLatLngZoom(sf, 10.0f));
+    map.moveCamera(CameraUpdateFactory.newLatLngZoom(sf, 14.0f));
+    map.setOnPoiClickListener(this);
+    map.seton
+  }
+
+  @Override
+  public void onPoiClick(PointOfInterest pointOfInterest) {
+    presenter.openPlaceDetails(pointOfInterest.placeId);
   }
 }

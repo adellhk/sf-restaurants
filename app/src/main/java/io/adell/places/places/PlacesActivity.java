@@ -44,7 +44,7 @@ public class PlacesActivity extends FragmentActivity
     placesPresenter.takeView(placesMapFragment);
     String sfLocation = "37.778644,-122.405680";
     placesPresenter.loadPlaces("restaurant", sfLocation);
-
+    placesMapFragment.setPresenter(placesPresenter);
   }
 
   @Override
