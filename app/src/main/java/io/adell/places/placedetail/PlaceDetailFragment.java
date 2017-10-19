@@ -7,4 +7,8 @@ import android.support.v4.app.Fragment;
  */
 
 public class PlaceDetailFragment extends Fragment implements PlaceDetailContract.View {
+  @Override
+  public void setPresenter(PlaceDetailContract.Presenter presenter) {
+
+  }
 }

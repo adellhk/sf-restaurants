@@ -9,10 +9,14 @@ import io.adell.places.BaseView;
 
 public interface PlacesContract {
   interface Presenter extends BasePresenter<View> {
+    void loadPlaces();
 
+    void openPlaceDetails();
   }
 
   interface View extends BaseView<Presenter> {
+    void showPlaceDetails();
 
+    void showPlaces();
   }
 }
