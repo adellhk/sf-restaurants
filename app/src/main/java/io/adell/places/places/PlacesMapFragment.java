@@ -1,6 +1,7 @@
 package io.adell.places.places;
 
 import android.os.Bundle;
+import android.widget.Toast;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -41,6 +42,11 @@ public class PlacesMapFragment extends SupportMapFragment implements PlacesContr
   @Override
   public void showPlaces() {
 
+  }
+
+  @Override
+  public void showConnectionError() {
+    Toast.makeText(getContext(), "Connection error", Toast.LENGTH_SHORT).show();
   }
 
   @Override
