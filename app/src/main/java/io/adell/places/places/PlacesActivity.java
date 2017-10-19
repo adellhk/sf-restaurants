@@ -41,6 +41,7 @@ public class PlacesActivity extends FragmentActivity
         .enableAutoManage(this, this)
         .build();
     placesPresenter = new PlacesPresenter(placesService, getString(R.string.google_maps_key));
+    placesPresenter.takeView(placesMapFragment);
     String sfLocation = "37.778644,-122.405680";
     placesPresenter.loadPlaces("restaurant", sfLocation);
 

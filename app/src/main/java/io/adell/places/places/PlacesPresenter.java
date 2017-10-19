@@ -48,6 +48,7 @@ public class PlacesPresenter implements PlacesContract.Presenter {
           @Override
           public void onSuccess(@NonNull PlacesSearchResponse placesSearchResponse) {
             places = placesSearchResponse.getResults();
+            view.showPlaces(places);
           }
 
           @Override

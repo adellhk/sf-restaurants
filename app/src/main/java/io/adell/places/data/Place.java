@@ -10,6 +10,9 @@ import java.util.List;
 
 public class Place {
 
+  @SerializedName("geometry")
+  @Expose
+  private Geometry geometry;
   @SerializedName("icon")
   @Expose
   private String icon;
@@ -37,6 +40,14 @@ public class Place {
   @SerializedName("vicinity")
   @Expose
   private String vicinity;
+
+  public Geometry getGeometry() {
+    return geometry;
+  }
+
+  public void setGeometry(Geometry geometry) {
+    this.geometry = geometry;
+  }
 
   public String getIcon() {
     return icon;
@@ -108,5 +119,49 @@ public class Place {
 
   public void setVicinity(String vicinity) {
     this.vicinity = vicinity;
+  }
+
+  public class Geometry {
+    private Location location;
+
+    public Geometry(Location location) {
+
+      this.location = location;
+    }
+
+    public Location getLocation() {
+      return location;
+    }
+
+    public void setLocation(Location location) {
+      this.location = location;
+    }
+  }
+
+  public class Location {
+    private float lat;
+    private float lng;
+
+    public Location(int lat, int lng) {
+
+      this.lat = lat;
+      this.lng = lng;
+    }
+
+    public float getLat() {
+      return lat;
+    }
+
+    public void setLat(float lat) {
+      this.lat = lat;
+    }
+
+    public float getLng() {
+      return lng;
+    }
+
+    public void setLng(float lng) {
+      this.lng = lng;
+    }
   }
 }
