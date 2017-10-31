@@ -60,14 +60,7 @@ public class PlacesPresenter implements PlacesContract.Presenter {
 
   @Override
   public void openPlaceDetails(String placeId) {
-    boolean found = false;
-    for (Place place : places) {
-      if (place.getPlaceId() == placeId) {
-        found = true;
-        view.showPlaceDetails(place);
-      }
-    }
-    if (!found) view.showConnectionError();
+    view.showPlaceDetails(placeId);
   }
 
   @Override

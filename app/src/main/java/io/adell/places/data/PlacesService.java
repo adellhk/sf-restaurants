@@ -1,6 +1,7 @@
 package io.adell.places.data;
 
 import io.reactivex.Single;
+import io.reactivex.disposables.Disposable;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
@@ -16,4 +17,8 @@ public interface PlacesService {
       @Query("location") String location,
       @Query("radius") String radius,
       @Query("key") String key);
+
+  @GET("/maps/api/place/details/json")
+  Single<PlaceDetailsSearchResponse> getPlaceDetails(@Query("placeid") String placeId,
+      @Query("key") String mapsApiKey);
 }

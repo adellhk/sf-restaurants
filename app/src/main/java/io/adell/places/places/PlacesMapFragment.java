@@ -38,9 +38,11 @@ public class PlacesMapFragment extends SupportMapFragment implements PlacesContr
   }
 
   @Override
-  public void showPlaceDetails(Place place) {
-    Toast.makeText(getContext(), "place: "+place.getName(), Toast.LENGTH_SHORT).show();
+  public void showPlaceDetails(String placeId) {
+    ((PlacesActivity) getActivity()).launchPlaceDetail(placeId);
   }
+
+
 
   @Override
   public void showPlaces(List<Place> places) {
@@ -63,7 +65,6 @@ public class PlacesMapFragment extends SupportMapFragment implements PlacesContr
     map.moveCamera(CameraUpdateFactory.newLatLng(sf));
     map.moveCamera(CameraUpdateFactory.newLatLngZoom(sf, 14.0f));
     map.setOnPoiClickListener(this);
-    map.seton
   }
 
   @Override

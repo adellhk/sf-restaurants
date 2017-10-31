@@ -20,7 +20,7 @@ public interface PlacesContract {
   }
 
   interface View extends BaseView<Presenter> {
-    void showPlaceDetails(Place place);
+    void showPlaceDetails(String placeId);
 
     void showPlaces(List<Place> places);
 
